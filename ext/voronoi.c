@@ -173,7 +173,7 @@ storeTriangulationTriplet(const int a, const int b, const int c)
     rb_ary_push(triplet, INT2FIX(a));
     rb_ary_push(triplet, INT2FIX(b));
     rb_ary_push(triplet, INT2FIX(c));
-    rb_ary_push(triplet, 130);
+    rb_ary_push(triplet, INT2FIX(999));
 
     /* Get the existing raw triangulation */
     trArray = rb_funcall(*(VALUE *)rubyvorState.comp, rb_intern("delaunay_triangulation_raw"), 0);
