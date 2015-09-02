@@ -168,11 +168,12 @@ storeTriangulationTriplet(const int a, const int b, const int c)
     VALUE trArray, triplet;
     
     /* Create a new triplet from the three incoming points */
-    triplet = rb_ary_new2(3);
+    triplet = rb_ary_new2(4);
     
     rb_ary_push(triplet, INT2FIX(a));
     rb_ary_push(triplet, INT2FIX(b));
     rb_ary_push(triplet, INT2FIX(c));
+    rb_ary_push(triplet, 130);
 
     /* Get the existing raw triangulation */
     trArray = rb_funcall(*(VALUE *)rubyvorState.comp, rb_intern("delaunay_triangulation_raw"), 0);
