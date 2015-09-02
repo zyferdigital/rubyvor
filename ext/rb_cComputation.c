@@ -30,6 +30,7 @@ RubyVor_from_points(VALUE self, VALUE pointsArray)
     /* Intern our point access methods */
     x = rb_intern("x");
     y = rb_intern("y");
+    data = rb_intern("data");
 
 
     /* Require nonzero size and x & y methods on each array object */
