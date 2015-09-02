@@ -20,7 +20,7 @@ VALUE
 RubyVor_from_points(VALUE self, VALUE pointsArray)
 {
     VALUE * inPtr, newComp;
-    ID x, y;
+    ID x, y, data;
 
     long i, inSize;
 
