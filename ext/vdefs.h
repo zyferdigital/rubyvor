@@ -139,7 +139,7 @@ void out_bisector(Edge *) ;
 void out_ep(Edge *) ;
 void out_vertex(Site *) ;
 void out_site(Site *) ;
-void out_triple(Site *, Site *, Site *) ;
+void out_triple(Site *, Site *, Site *, Site *, Site *, Site *) ;
 void plotinit(void) ;
 void clip_line(Edge *) ;
 void debug_memory(void);
