@@ -20,9 +20,9 @@ VALUE
 RubyVor_from_points(VALUE self, VALUE pointsArray)
 {
     VALUE * inPtr, newComp;
-    ID x, y, data;
+    ID x, y;
 
-    long i, inSize;
+    long i, inSize, data;
 
     /* Require T_ARRAY */
     Check_Type(pointsArray, T_ARRAY);
