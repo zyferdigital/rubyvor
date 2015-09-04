@@ -106,7 +106,7 @@ voronoi(Site *(*nextsite)(void))
             rrbnd = ELright(rbnd) ;
             bot = leftreg(lbnd) ;
             top = rightreg(rbnd) ;
-            out_triple(bot, top, rightreg(lbnd), bot, top, rightreg(lbnd)) ;
+            out_triple(bot, top, rightreg(lbnd), newsite->siteid, newsite->siteid, newsite->siteid) ;
             v = lbnd->vertex ;
             makevertex(v) ;
             endpoint(lbnd->ELedge, lbnd->ELpm, v);

@@ -23,6 +23,7 @@ typedef struct tagPoint
 {
     float x ;
     float y ;
+    int pointid ;
 } Point ;
 
 /* structure used both for sites and for vertices */
@@ -32,6 +33,7 @@ typedef struct tagSite
     Point coord ;
     int sitenbr ;
     int refcnt ;
+    int siteid ;
 } Site ;
 
 
@@ -61,11 +63,11 @@ typedef struct tagHalfedge
 typedef struct tagVoronoiState
 {
     /* voronoi.c */
-    int sorted, plot, debug, siteidx;
+    int sorted, plot, debug, siteidx, objectid;
     float xmin, xmax, ymin, ymax;
     Site * sites;
     void * comp;
-    void (* storeT)(int, int, int);
+    void (* storeT)(int, int, int, int, int, int);
     void (* storeL)(float, float, float);
     void (* storeE)(int, int, int);
     void (* storeV)(float, float);
