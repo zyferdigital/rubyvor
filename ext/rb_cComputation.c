@@ -74,7 +74,7 @@ RubyVor_from_points(VALUE self, VALUE pointsArray)
             rubyvorState.sites[rubyvorState.nsites].coord.x = NUM2DBL(rb_funcall(inPtr[i], x, 0));
             rubyvorState.sites[rubyvorState.nsites].coord.y = NUM2DBL(rb_funcall(inPtr[i], y, 0));
              
-            rubyvorState.sites[rubyvorState.nsites].siteid = data;
+            rubyvorState.sites[rubyvorState.nsites].siteid = NUM2INT(rb_funcall(inPtr[i], data, 0));
             rubyvorState.sites[rubyvorState.nsites].sitenbr = rubyvorState.nsites;
             rubyvorState.sites[rubyvorState.nsites++].refcnt = 0;
             
