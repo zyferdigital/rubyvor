@@ -8,7 +8,7 @@
 VoronoiState rubyvorState;
 
 /* Static method definitions: C -> Ruby storage methods. */
-static void storeTriangulationTriplet(const int, const int, const int);
+static void storeTriangulationTriplet(const int, const int, const int, const int, const int, const int);
 static void storeLine(const float, const float, const float);
 static void storeEndpoint(const int, const int, const int);
 static void storeVertex(const float, const float);
@@ -106,7 +106,7 @@ voronoi(Site *(*nextsite)(void))
             rrbnd = ELright(rbnd) ;
             bot = leftreg(lbnd) ;
             top = rightreg(rbnd) ;
-            out_triple(bot, top, rightreg(lbnd)) ;
+            out_triple(bot, top, rightreg(lbnd), bot, top, rightreg(lbnd)) ;
             v = lbnd->vertex ;
             makevertex(v) ;
             endpoint(lbnd->ELedge, lbnd->ELpm, v);
@@ -163,17 +163,20 @@ voronoi(Site *(*nextsite)(void))
 
 /*** stores a triplet of point indices that comprise a Delaunay triangle ***/
 static void
-storeTriangulationTriplet(const int a, const int b, const int c)
+storeTriangulationTriplet(const int a, const int b, const int c, const int x, const int y, const int z)
 {
     VALUE trArray, triplet;
     
     /* Create a new triplet from the three incoming points */
-    triplet = rb_ary_new2(4);
+    triplet = rb_ary_new2(6);
     
     rb_ary_push(triplet, INT2FIX(a));
     rb_ary_push(triplet, INT2FIX(b));
     rb_ary_push(triplet, INT2FIX(c));
-    rb_ary_push(triplet, INT2FIX(999));
+    
+    rb_ary_push(triplet, INT2FIX(x));
+    rb_ary_push(triplet, INT2FIX(y));
+    rb_ary_push(triplet, INT2FIX(z));
 
     /* Get the existing raw triangulation */
     trArray = rb_funcall(*(VALUE *)rubyvorState.comp, rb_intern("delaunay_triangulation_raw"), 0);
