@@ -16,7 +16,7 @@ module RubyVor
         @nn_graph = nil
         @mst = nil
 
-        @no_neighbor_response = :use_all
+        @no_neighbor_response = :ignore
       end
 
       # Decided what action to take if we find a point with no neighbors
