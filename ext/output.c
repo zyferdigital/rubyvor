@@ -77,7 +77,7 @@ void
 out_triple(Site * s1, Site * s2, Site * s3, Site * sX, Site * sY, Site * sZ)
 {
     /* Save triplet to our ruby object */
-    (*rubyvorState.storeT)(s1->sitenbr, s2->sitenbr, s3->sitenbr, sX, sY, sZ);
+    (*rubyvorState.storeT)(s1->sitenbr, s2->sitenbr, s3->sitenbr, sX->siteid, sY->siteid, sZ->siteid);
     
     if (rubyvorState.debug)
     {
